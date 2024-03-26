@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "name": "tastytrade-bot",
+    "version": "1.0.0"
+  },
+  "api-info": {
+    "cert": "https://api.cert.tastyworks.com",
+    "prod": "https://api.tastyworks.com"
+  },
+  "personal-data": {
+    "login": "jinpro",
+    "password": "warren040504"
+  }
+}
