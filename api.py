@@ -44,6 +44,36 @@ class API:
             print(f"Response: {response.text}")
             return None
 
+    def put(self, endpoint: str = None, body: dict = {}, headers: dict = None,
+            params: dict = None) -> requests.Response:
+        if headers is None:
+            headers = self.headers
+        response = requests.get(self.url + endpoint, data=json.dumps(body), headers=headers, params=params)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Error {response.status_code}")
+            print(f"Endpoint: {endpoint}")
+            print(f"Body: {body}")
+            print(f"Headers: {headers}")
+            print(f"Response: {response.text}")
+            return None
+
+    def patch(self, endpoint: str = None, body: dict = {}, headers: dict = None,
+            params: dict = None) -> requests.Response:
+        if headers is None:
+            headers = self.headers
+        response = requests.get(self.url + endpoint, data=json.dumps(body), headers=headers, params=params)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Error {response.status_code}")
+            print(f"Endpoint: {endpoint}")
+            print(f"Body: {body}")
+            print(f"Headers: {headers}")
+            print(f"Response: {response.text}")
+            return None
+
     def delete(self, endpoint: str = None, body: dict = {}, headers: dict = None) -> requests.Response:
         if headers is None:
             headers = self.headers
@@ -92,5 +122,7 @@ class Config:
             self.data = json.load(f)
         if prod == False:
             self.url = self.data["api-info"]["cert"]
+            self.account_number = self.data["account-numbers"]["cert"]
         else:
             self.url = self.data["api-info"]["prod"]
+            self.account_number = self.data["account-numbers"]["prod"]
