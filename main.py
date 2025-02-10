@@ -58,7 +58,7 @@ async def trader(stream):
                     "legs": [
                     {
                         "action": "Sell to Open",
-                        "symbol": f"SPY   240719C00{atm}000", #"AAPL  230818C00197500" AAPL Call Option with 197.5 strike price, option expires 2023-08-18
+                        "symbol": f"SPY   240719C00{atm}000", #'SPXW  240717P05600000'
                         "quantity": 1,
                         "instrument-type": "Equity Option",
                     },
@@ -88,8 +88,8 @@ async def main():
 
     #await streamer(stream, mode="single stream")
 
-    #response = session.get('/option-chains/SPY/compact')
-    #print(response)
+    response = session.get('/option-chains/SPX/compact')
+    print(response)
 
     await trader(stream)
 
